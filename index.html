@@ -1,0 +1,868 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1">&lt;title&gt;Mahal Candidate Travel History Calculator&lt;/title&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"&gt;&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>body {<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>max-width: 700px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin: 30px auto;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background-color: #f4f4f9;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>h2 {<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-align: center;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #2c3e50;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 10px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.subtitle {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #555;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 1.05em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight: normal;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>line-height: 1.5;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>max-width: 650px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-left: auto;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-right: auto;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>fieldset {<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid #ddd;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 25px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 25px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 8px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 2px 5px rgba(0,0,0,0.05);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>legend {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background-color: #007bff;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 6px 15px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 0.95rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>line-height: 1.4;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* --- NAME INPUT --- */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.name-section {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid #ddd;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 2px 5px rgba(0,0,0,0.05);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.name-section label {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.name-section input {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid #ccc;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-sizing: border-box;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* --- FLEXBOX CHECKBOXES --- */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.checkbox-row {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: flex; <span class="Apple-converted-space">       </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>align-items: flex-start;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.checkbox-row input[type="checkbox"] {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-right: 15px; <span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: 20px; <span class="Apple-converted-space">         </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>height: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>accent-color: #007bff;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-top: 2px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>flex-shrink: 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.checkbox-row label {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>user-select: none;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>line-height: 1.4;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* --- PROGRAM DETAILS INPUTS --- */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>#program-details {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: none;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-top: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding-left: 35px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>background-color: #f9f9f9;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-left: 3px solid #007bff;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.program-input-group {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.program-input-group label {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 0.9em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #555;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.program-input-group input {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid #ccc;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>max-width: 300px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-family: inherit;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* --- INSTRUCTION NOTE --- */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>#instruction-note {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #e65100;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>background-color: #fff3e0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-left: 4px solid #ff9800;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: none;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* --- DISCLAIMER STYLE --- */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.disclaimer-text {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #d9534f;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 0.95em;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* --- TRIP ROW --- */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.trip-row {<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>background-color: #f8f9fa;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid #e9ecef;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 20px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 20px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.trip-number {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #555;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 0.9em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>letter-spacing: 0.5px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.date-group {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>gap: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>flex-wrap: wrap;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.input-wrapper {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>flex: 1;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>min-width: 160px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.input-wrapper label {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 0.85em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #666;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight: 500;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.input-wrapper input {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid #ccc;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-family: inherit;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-sizing: border-box;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* --- BUTTONS --- */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-submit {<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 16px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 18px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor: pointer;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>background-color: #28a745;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: white;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: none;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 6px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition: background 0.3s, transform 0.1s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-top: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 4px 6px rgba(0,0,0,0.1);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-submit:hover { background-color: #218838; transform: translateY(-1px); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-submit:active { transform: translateY(0); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* New PDF Button Style */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-pdf {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background-color: #007bff; /* Blue */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-top: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: auto;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 12px 25px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: inline-block;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-pdf:hover {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background-color: #0056b3;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* --- RESULTS AREA --- */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>#results-area {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background-color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid #eee;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-top: 6px solid #333;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: none;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 10px 25px rgba(0,0,0,0.1);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>line-height: 1.6;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-top: 40px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Important for PDF generation */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>max-width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-sizing: border-box;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* --- CALCULATION LOG STYLING --- */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.log-section-title {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 1.1em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-bottom: 2px solid #eee;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-top: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>page-break-after: avoid;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.calc-log-item {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 10px 15px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 10px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>background-color: #fcfcfc;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-left: 3px solid #ddd;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 0 4px 4px 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>page-break-inside: avoid; /* Keeps items together in PDF */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.log-trip {<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #555;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight: normal;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 0.9em;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.log-gap-text { color: #333; font-weight: normal; font-size: 0.9em; }<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.log-details {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-top: 3px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding-left: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 0.95em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #444;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.log-explanation {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 0.85em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #666;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-style: italic;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-top: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding-left: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* Yearly Table */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.year-table {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-collapse: collapse;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-top: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>page-break-inside: avoid;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.year-table th, .year-table td {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid #ddd;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-align: left;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.year-table th { background-color: #f1f1f1; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* Final Status Section - Now at Top */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.status-footer {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background-color: #f8f9fa;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 30px; /* Changed from margin-top */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid #e9ecef;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>page-break-inside: avoid;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* Grand Total */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.grand-total {<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 1.4em;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight: bold;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #000;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background-color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 2px solid #000;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin: 30px 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>page-break-inside: avoid;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* Footer Disclaimer */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.result-disclaimer {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-top: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 2px solid #d9534f;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background-color: #fff5f5;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #d9534f;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 0.9em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>page-break-inside: avoid;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.result-disclaimer strong { display: block; margin-bottom: 8px; text-decoration: underline;}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* --- ELIGIBILITY CHART STYLING --- */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.eligibility-container {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-top: 40px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-top: 4px solid #007bff;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding-top: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>page-break-inside: avoid;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.eligibility-table {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-collapse: collapse;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 0.9em;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.eligibility-table th {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background-color: #f1f1f1; /* Light gray to match left col */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #333; <span class="Apple-converted-space">              </span>/* Dark text */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid #ddd;<span class="Apple-converted-space">    </span>/* Standard border */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>vertical-align: middle;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.eligibility-table td {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid #ddd;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>vertical-align: middle;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.eligibility-row-header {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background-color: #f1f1f1;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-align: left !important;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.eligibility-note {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 0.9em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>line-height: 1.5;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.red-text {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #d9534f;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;br&gt;</p>
+<p class="p1">&lt;h2&gt;Mahal Candidate Travel History Calculator&lt;/h2&gt;</p>
+<p class="p1">&lt;div class="subtitle"&gt;This is a tool to calculate how long you've stayed in Israel throughout your life. Information from this calculator will help you understand whether you may be eligible for a shortened 18-month service. You may download a PDF summary at the end, but information is not saved automatically and not sent anywhere.&lt;/div&gt;</p>
+<p class="p1">&lt;br&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;form id="myForm"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="name-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="candidate_name"&gt;Candidate Name:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="text" id="candidate_name" placeholder="Enter your full name"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;fieldset&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;legend&gt;1. Status&lt;/legend&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="checkbox-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="checkbox" name="group_status" value="bnei_mehagrim" id="chk_mehagrim" onclick="handleStatusChange(this)"&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="chk_mehagrim"&gt;Bnei Mehagrim&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="checkbox-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="checkbox" name="group_status" value="tourist" id="chk_tourist" onclick="handleStatusChange(this)"&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="chk_tourist"&gt;Tourist&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/fieldset&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;fieldset&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;legend&gt;2. Have you participated in a recognized program in Israel, such as Mechina, Masa, or Midrasha?&lt;/legend&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="checkbox-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="checkbox" name="group_program" value="yes_program" id="chk_yes" onclick="handleProgramChange(this)"&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="chk_yes"&gt;I have participated in a program&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="program-details"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="program-input-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label&gt;Name of Program:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="program_name" placeholder="e.g., Mechinat Kol Ami"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="date-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="program-input-group" style="flex:1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label&gt;Program Start Date:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="date" id="program_start"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="program-input-group" style="flex:1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label&gt;Program End Date:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="date" id="program_end"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="checkbox-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="checkbox" name="group_program" value="no_program" id="chk_no" onclick="handleProgramChange(this)"&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="chk_no"&gt;I have not participated in a program&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/fieldset&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;fieldset&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;legend&gt;3. Record of Entries &amp; Exits&lt;/legend&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="instruction-note"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="travel-rows"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style="font-size: 0.85em; color: #777; margin-top: 15px; font-style: italic;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>* New rows will appear automatically when you fill the current one.</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/fieldset&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;fieldset style="border-color: #d9534f;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;legend style="background-color: #d9534f;"&gt;4. Disclaimer&lt;/legend&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="checkbox-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="checkbox" id="disclaimer_1"&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="disclaimer_1" class="disclaimer-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>I understand that the calculator tool is for estimation purposes only. The official count is conducted by the army and will not necessarily match the count of this calculator.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="checkbox-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="checkbox" id="disclaimer_2"&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="disclaimer_2" class="disclaimer-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>The calculator may make mistakes, and I am solely responsible for double-checking results from the calculator. Mahal cannot take responsibilty for errors.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/fieldset&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button type="button" class="btn-submit" onclick="getFormData()"&gt;Calculate Total Days&lt;/button&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="results-area"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/form&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>let rowCount = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.addEventListener('DOMContentLoaded', function() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>addNewRow();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function formatDatePretty(dateString) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(!dateString) return "";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const parts = dateString.split('-');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const year = parseInt(parts[0]);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const month = parseInt(parts[1]) - 1;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const day = parseInt(parts[2]);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const d = new Date(year, month, day);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const options = { year: 'numeric', month: 'long', day: 'numeric' };</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return d.toLocaleDateString('en-US', options);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function calculateDuration(startStr, endStr) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(!startStr || !endStr) return "N/A";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let start = new Date(startStr);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let end = new Date(endStr);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(end &lt; start) return "Invalid Dates";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>let years = end.getFullYear() - start.getFullYear();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let months = end.getMonth() - start.getMonth();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let days = end.getDate() - start.getDate();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (days &lt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>months--;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>let prevMonthDate = new Date(end.getFullYear(), end.getMonth(), 0);</p>
+<p class="p1"><span class="Apple-converted-space">          </span>days += prevMonthDate.getDate();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (months &lt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>years--;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>months += 12;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let totalMonths = (years * 12) + months;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return `${totalMonths} months and ${days} days`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function addNewRow() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>rowCount++;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const container = document.getElementById('travel-rows');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const rowDiv = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>rowDiv.className = 'trip-row';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>rowDiv.dataset.id = rowCount;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>rowDiv.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="trip-number"&gt;Trip Entry ${rowCount}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="date-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="input-wrapper"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label&gt;Date Arrived in Israel:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="date" class="date-arrival" name="arrival_${rowCount}"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="input-wrapper"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label&gt;Date Departed from Israel:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="date" class="date-departure" name="departure_${rowCount}"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>container.appendChild(rowDiv);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('travel-rows').addEventListener('change', function(e) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (e.target.tagName === 'INPUT' &amp;&amp; e.target.type === 'date') {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const currentRow = e.target.closest('.trip-row');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const arrivalInput = currentRow.querySelector('.date-arrival');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const departureInput = currentRow.querySelector('.date-departure');</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (arrivalInput.value &amp;&amp; departureInput.value) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const arrDate = new Date(arrivalInput.value);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const depDate = new Date(departureInput.value);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (depDate &lt; arrDate) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>alert("Error: Departure date cannot be earlier than Arrival date.");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>e.target.value = "";<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const allRows = document.querySelectorAll('.trip-row');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const lastRow = allRows[allRows.length - 1];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (currentRow === lastRow &amp;&amp; arrivalInput.value &amp;&amp; departureInput.value) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>addNewRow();<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function selectOnlyOne(checkbox) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>var group = document.getElementsByName(checkbox.name);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>group.forEach((item) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (item !== checkbox) item.checked = false;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function handleStatusChange(checkbox) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>selectOnlyOne(checkbox);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const noteDiv = document.getElementById('instruction-note');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (checkbox.checked) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>noteDiv.style.display = "block";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (checkbox.value === "bnei_mehagrim") {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>noteDiv.innerText = "Please indicate your travel records from Age 10.";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else if (checkbox.value === "tourist") {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>noteDiv.innerText = "Please indicate your travel records since Age 16.";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>noteDiv.style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function handleProgramChange(checkbox) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>selectOnlyOne(checkbox);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const detailsDiv = document.getElementById('program-details');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (checkbox.checked &amp;&amp; checkbox.value === "yes_program") {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>detailsDiv.style.display = "block";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>detailsDiv.style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('program_name').value = "";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('program_start').value = "";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('program_end').value = "";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function downloadPDF() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>// 1. Get the element</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const element = document.getElementById('results-area');</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// 2. Temporarily ensure the element is ready for capture</p>
+<p class="p1"><span class="Apple-converted-space">      </span>window.scrollTo(0, 0);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// 3. Get Candidate Name for Filename</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const nameInput = document.getElementById('candidate_name').value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let cleanName = "mahal_candidate";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (nameInput) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Replace spaces with underscores, remove non-alphanumeric chars, toLowerCase</p>
+<p class="p1"><span class="Apple-converted-space">        </span>cleanName = nameInput.replace(/[^a-zA-Z0-9 ]/g, "").replace(/\s+/g, "_").toLowerCase();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const finalFileName = `${cleanName}_days_in_israel.pdf`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// 4. Set options</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const opt = {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>margin: <span class="Apple-converted-space">      </span>[10, 10, 10, 10],<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">          </span>filename: <span class="Apple-converted-space">    </span>finalFileName,</p>
+<p class="p1"><span class="Apple-converted-space">          </span>image:<span class="Apple-converted-space">        </span>{ type: 'jpeg', quality: 0.98 },</p>
+<p class="p1"><span class="Apple-converted-space">          </span>html2canvas:<span class="Apple-converted-space">  </span>{<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">              </span>scale: 2,<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">              </span>useCORS: true,<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">              </span>scrollY: 0,<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">              </span>windowWidth: document.documentElement.offsetWidth<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">          </span>},</p>
+<p class="p1"><span class="Apple-converted-space">          </span>jsPDF:<span class="Apple-converted-space">        </span>{ unit: 'mm', format: 'a4', orientation: 'portrait' },</p>
+<p class="p1"><span class="Apple-converted-space">          </span>pagebreak:<span class="Apple-converted-space">    </span>{ mode: ['css', 'legacy'] }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// 5. Generate</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (typeof html2pdf !== 'undefined') {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>html2pdf().set(opt).from(element).save().catch(err =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">              </span>console.error("PDF Generation Error:", err);</p>
+<p class="p1"><span class="Apple-converted-space">              </span>alert("There was an error generating the PDF. Please check the console or try a different browser.");</p>
+<p class="p1"><span class="Apple-converted-space">          </span>});</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>alert("Error: PDF library not loaded. Please check your internet connection.");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function getFormData() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const d1 = document.getElementById('disclaimer_1').checked;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const d2 = document.getElementById('disclaimer_2').checked;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const candidateName = document.getElementById('candidate_name').value.trim();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (!d1 || !d2) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>alert("You must acknowledge the disclaimers by checking both red boxes before submitting.");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (!candidateName) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>alert("Please enter your name at the top of the form.");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('candidate_name').focus();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let validTrips = [];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const rows = document.querySelectorAll('.trip-row');</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>rows.forEach(row =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const arrVal = row.querySelector('.date-arrival').value;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const depVal = row.querySelector('.date-departure').value;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (arrVal &amp;&amp; depVal) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>validTrips.push({</p>
+<p class="p1"><span class="Apple-converted-space">                </span>start: new Date(arrVal),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>end: new Date(depVal),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>startStr: arrVal,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>endStr: depVal</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>validTrips.sort((a, b) =&gt; a.start - b.start);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- HTML CONSTRUCTION ---</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// 1. STATUS FOOTER (Now moved to TOP)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const status = document.querySelector('input[name="group_status"]:checked');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const program = document.querySelector('input[name="group_program"]:checked');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let infoSectionHTML = `&lt;div class="status-footer"&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>infoSectionHTML += `&lt;strong&gt;Candidate Name:&lt;/strong&gt; ${candidateName}&lt;br&gt;&lt;br&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>infoSectionHTML += `&lt;strong&gt;Legal Status:&lt;/strong&gt; ${status ? status.nextElementSibling.innerText : "Not Selected"}&lt;br&gt;`;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (!program || program.value !== 'yes_program') {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>infoSectionHTML += `&lt;strong&gt;Program Status:&lt;/strong&gt; ${program ? program.nextElementSibling.innerText : "Not Selected"}&lt;br&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (program &amp;&amp; program.value === "yes_program") {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let progName = document.getElementById('program_name').value;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let progStart = document.getElementById('program_start').value;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let progEnd = document.getElementById('program_end').value;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let progDuration = calculateDuration(progStart, progEnd);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>infoSectionHTML += `&lt;strong&gt;Program Name:&lt;/strong&gt; ${progName ? progName : "Not entered"}&lt;br&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>infoSectionHTML += `&lt;strong&gt;Program Dates:&lt;/strong&gt; ${formatDatePretty(progStart)} to ${formatDatePretty(progEnd)}&lt;br&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>infoSectionHTML += `&lt;strong&gt;Program Duration:&lt;/strong&gt; ${progDuration}`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>infoSectionHTML += `&lt;/div&gt;`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// 2. CALCULATION LOG</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let logHTML = `&lt;div class="log-section-title"&gt;Calculation Log (61 day rule)&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let grandTotalDays = 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let yearlyCounts = {};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function addRangeToYears(startDate, endDate) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let current = new Date(startDate);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>current.setHours(12,0,0,0);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let end = new Date(endDate);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>end.setHours(12,0,0,0);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>while (current &lt;= end) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const y = current.getFullYear();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!yearlyCounts[y]) yearlyCounts[y] = 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>yearlyCounts[y]++;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>current.setDate(current.getDate() + 1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (validTrips.length === 0) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>logHTML += "&lt;p&gt;No complete travel dates entered.&lt;/p&gt;";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>for (let i = 0; i &lt; validTrips.length; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let currentTrip = validTrips[i];</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>let diffTime = Math.abs(currentTrip.end - currentTrip.start);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let tripDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>grandTotalDays += tripDays;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>addRangeToYears(currentTrip.start, currentTrip.end);<span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>let sDate = formatDatePretty(currentTrip.startStr);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let eDate = formatDatePretty(currentTrip.endStr);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>logHTML += `&lt;div class="calc-log-item"&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>logHTML += `&lt;div class="log-trip"&gt;Trip ${i+1}: ${sDate} to ${eDate}&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>logHTML += `&lt;div class="log-details"&gt;↳ &lt;strong&gt;${tripDays} days&lt;/strong&gt; added.&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>logHTML += `&lt;/div&gt;`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (i &lt; validTrips.length - 1) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>let nextTrip = validTrips[i+1];</p>
+<p class="p1"><span class="Apple-converted-space">                </span>let gapTime = nextTrip.start - currentTrip.end;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>let gapDays = Math.ceil(gapTime / (1000 * 60 * 60 * 24)) - 1;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (gapDays &lt; 61 &amp;&amp; gapDays &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>grandTotalDays += gapDays;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>let gapStart = new Date(currentTrip.end);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>gapStart.setDate(gapStart.getDate() + 1);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>let gapEnd = new Date(nextTrip.start);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>gapEnd.setDate(gapEnd.getDate() - 1);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>addRangeToYears(gapStart, gapEnd);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>logHTML += `&lt;div class="calc-log-item"&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>logHTML += `&lt;div class="log-gap-text"&gt;Gap of ${gapDays} days (&lt; 61 days).&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>logHTML += `&lt;div class="log-details"&gt;↳ Counted as 61 day rule. &lt;strong&gt;${gapDays} days&lt;/strong&gt; added.&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>logHTML += `&lt;div class="log-explanation"&gt;You were away from Israel for fewer than 61 days. Therefore, your days away are counted as days in Israel.&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>logHTML += `&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let yearTableHTML = `&lt;div class="log-section-title"&gt;Yearly Breakdown (Includes 61 day rule)&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>yearTableHTML += `&lt;table class="year-table"&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Year&lt;/th&gt;&lt;th&gt;Days Counted&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let sortedYears = Object.keys(yearlyCounts).sort();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(sortedYears.length &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>sortedYears.forEach(year =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>yearTableHTML += `&lt;tr&gt;&lt;td&gt;${year}&lt;/td&gt;&lt;td&gt;${yearlyCounts[year]}&lt;/td&gt;&lt;/tr&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>yearTableHTML += `&lt;tr&gt;&lt;td colspan="2"&gt;No dates recorded&lt;/td&gt;&lt;/tr&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>yearTableHTML += `&lt;/tbody&gt;&lt;/table&gt;`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let summaryHTML = `&lt;div class="grand-total"&gt;GRAND TOTAL: ${grandTotalDays} DAYS IN ISRAEL&lt;/div&gt;`;</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let disclaimerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="result-disclaimer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;strong&gt;DISCLAIMER CONFIRMATION&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>[x] I understand that the calculator tool is for estimation purposes only. The official count is conducted by the army and will not necessarily match the count of this calculator.&lt;br&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>[x] The calculator may make mistakes, and I am solely responsible for double-checking results from the calculator. Mahal cannot take responsibilty for errors.</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- PDF BUTTON HTML ---</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// The data-html2canvas-ignore attribute makes sure the button itself doesn't appear inside the downloaded PDF</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let pdfButtonHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div style="text-align: center;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="button" class="btn-submit btn-pdf" onclick="downloadPDF()" data-html2canvas-ignore="true"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Download Summary as PDF</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Chart HTML</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let chartHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="eligibility-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Eligibility for Shortened Service&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;table class="eligibility-table"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;th&gt;Status&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;th&gt;Without participation in a recognized Program&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;th&gt;After participation in a Government-recognized Program&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;td class="eligibility-row-header"&gt;Bnei Mehagrim&lt;br&gt;&lt;span style="font-weight:normal; font-size:0.85em;"&gt;(Time counted since age 10)&lt;/span&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;td&gt;up to 120 days in any &lt;span class="red-text"&gt;calendar year&lt;/span&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;td&gt;up to 365 days&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;td class="eligibility-row-header"&gt;Tourists&lt;br&gt;&lt;span style="font-weight:normal; font-size:0.85em;"&gt;(Time counted since age 16)&lt;/span&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;td&gt;up to 365 days&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;td&gt;up to 547 days&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/table&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="eligibility-note"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;If your stay in Israel does not exceed the time specified in the above chart, since the specified age, you &lt;span class="red-text"&gt;may be eligible for a shortened 18-month service but this is not a guarantee.&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&lt;span class="red-text"&gt;Eligibility for a shortened service is determined by the IDF only after you arrive in Israel.&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&lt;span class="red-text"&gt;Mahal cannot guarantee eligibility for a shortened service before your arrival.&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- ASSEMBLY ---</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const resultDiv = document.getElementById('results-area');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>resultDiv.style.display = 'block';</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Updated Order: Info -&gt; Log -&gt; Table -&gt; Summary -&gt; Disclaimer -&gt; Button -&gt; Chart</p>
+<p class="p1"><span class="Apple-converted-space">    </span>resultDiv.innerHTML = infoSectionHTML + logHTML + yearTableHTML + summaryHTML + disclaimerHTML + pdfButtonHTML + chartHTML;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>resultDiv.scrollIntoView({behavior: "smooth"});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
